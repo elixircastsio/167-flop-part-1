@@ -17,6 +17,9 @@ config :teacher, TeacherWeb.Endpoint,
   pubsub_server: Teacher.PubSub,
   live_view: [signing_salt: "D9cInQPM"]
 
+config :flop,
+  repo: Teacher.Repo
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails

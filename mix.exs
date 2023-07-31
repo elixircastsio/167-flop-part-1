@@ -49,6 +49,7 @@ defmodule Teacher.MixProject do
       {:jason, "~> 1.2"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
       {:phoenix_view, "~> 2.0"},
+      {:flop_phoenix, "~> 0.20.0"},
       {:plug_cowboy, "~> 2.5"}
     ]
   end

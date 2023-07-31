@@ -17,12 +17,15 @@ defmodule Teacher.Recordings do
       [%Album{}, ...]
 
   """
-  def list_albums do
-    qry =
-      from album in Album,
-      order_by: [desc: album.updated_at]
+  def list_albums(params) do
+    case Flop.validate_and_run(Album, params, for: Album) do
+      {:ok, {albums, meta}} ->
+        %{albums: albums, meta: meta}
 
-    Repo.all(qry)
+      {:error, meta} ->
+        %{albums: [], meta: meta}
+
+    end
   end
 
   @doc """

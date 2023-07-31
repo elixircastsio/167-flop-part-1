@@ -21,9 +21,12 @@ defmodule TeacherWeb.AlbumLive.Index do
     |> assign(:album, %Album{})
   end
 
-  defp apply_action(socket, :index, _params) do
+  defp apply_action(socket, :index, params) do
+    %{albums: albums, meta: meta} = Recordings.list_albums(params)
+
     socket
-    |> assign(:albums, Recordings.list_albums())
+    |> assign(:albums, albums)
+    |> assign(:meta, meta)
     |> assign(:page_title, "Listing Albums")
   end
 

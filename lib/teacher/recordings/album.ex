@@ -2,6 +2,13 @@ defmodule Teacher.Recordings.Album do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @derive {
+    Flop.Schema,
+    filterable: [:title, :artist, :year],
+    sortable: [:title, :artist, :year],
+    default_limit: 4
+  }
+
   @attrs [
     :title,
     :artist,
